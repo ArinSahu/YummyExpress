@@ -23,10 +23,10 @@ export default function Navbar() {
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/login">Login</Link>
+                                <Link className="nav-link" to="/loginuser">Login</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/login">SignUp</Link>
+                                <Link className="nav-link" to="/createuser">SignUp</Link>
                             </li>
                            
                         </ul>
