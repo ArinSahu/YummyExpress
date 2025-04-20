@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
+const bcrypt=require("bcrypt");
+const jwt=require('jsonwebtoken');
+const jwtSecret="bhosadpappumadarchodrandi"
 
 router.post("/createuser",
     [body('email').isEmail(),
@@ -9,15 +12,17 @@ router.post("/createuser",
     body('name').isLength({ min: 5 })
     ]
     , async (req, res) => {
+
         const result = validationResult(req);
         if (!result.isEmpty()) {
             return res.status(400).json({ result: result.array() });
         }
-
+        const salt=await bcrypt.genSalt(10);
+        let secPassword=await bcrypt.hash(req.body.password,salt);
         try {
             await User.create({
                 name: req.body.name,
-                password: req.body.password,
+                password: secPassword,
                 email: req.body.email,
                 location: req.body.location
             })
@@ -40,12 +45,20 @@ router.post("/loginuser",
         try {
             let userdata = await User.findOne({ email });
             if (!userdata) {
-                return res.status(400).json({ result: "log with correct credentials" });
+                return res.status(400).json({ result: "log with correct email" });
             }
-            if (req.body.password !== userdata.password) {
-                return res.status(400).json({ result: "log with correct credentials" });
+            const pwdCompare=await bcrypt.compare(req.body.password,userdata.password);
+            if (!pwdCompare) {
+                return res.status(400).json({ result: "log with correct password" });
             }
-            return res.json({ success: "true" });
+            const data={
+                user:{
+                    id:userdata.id
+
+                }
+            }
+            const authToken=jwt.sign(data,jwtSecret);
+            return res.json({ success: "true" ,authToken:authToken});
 
         } catch (error) {
             console.log(error);
