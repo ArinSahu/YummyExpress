@@ -1,13 +1,18 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card(props) {
+
+    let options=props.options;
+    let priceOptions=Object.keys(options);
+
+
     return (
         <div>
             <div className="card mt-3" style={{ "width": "20rem", "maxHeight": "500px" }}>
-                <img className="card-img-top " style={{ height: "200px", objectFit: "conatain" }}  src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap" />
+                <img className="card-img-top " style={{ height: "200px", objectFit: "conatain" }}  src={props.imgSrc} alt="Card image cap" />
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">jaruri text hai</p>
+                    <h5 className="card-title">{props.foodName}</h5>
+                    {/* <p className="card-text">jaruri text hai</p> */}
                     <div className='container w-100'>
                         <select className='m-2 h-100  bg-success rounded'>
                             {Array.from(Array(6), (e, i) => {
@@ -17,8 +22,11 @@ export default function Card() {
                             })}
                         </select>
                         <select className='m-2 h-100  bg-success rounded'>
-                            <option value={"half"}>Half</option>
-                            <option value={"full"}>Full</option>
+                            {priceOptions.map((data)=>{
+                                return <option key={data} value={data}>
+                                    {data}
+                                </option>
+                            })}
                         </select>
                         <div className='d-inline h-100 fs-5'>Total Price</div>
                     </div>

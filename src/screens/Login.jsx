@@ -41,7 +41,7 @@ export default function Login() {
                               <input type="password" className="form-control" id="exampleInputPassword1" name='password' value={credentials.password}onChange={onChange} />
                           </div>
                           <button type="submit" className="btn btn-primary">Submit</button>
-                          <Link to="/createuser" className="m-3 btn btn-danger">I'm a user</Link>
+                          <Link to="/createuser" className="m-3 btn btn-danger">I'm a new user</Link>
                       </form>
                   </div>
     </>
