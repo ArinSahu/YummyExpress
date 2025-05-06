@@ -10,8 +10,27 @@ export default function Card(props) {
     const [qty,setQty]=useState(1);
     const [size,setSize]=useState("");
     const handleAddToCart =async()=>{
+        let food = []
+        for (const item of data) {
+          if (item.id === foodItem._id) {
+            food = item;
+    
+            break;
+          }
+        }
+        if (food != []) {
+            if (food.size === size) {
+              await dispatch({ type: "UPDATE", id: foodItem._id, price: finalPrice, qty: qty })
+              return
+            }
+            else  {
+              await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
+              console.log("Size different so simply ADD one more to the list")
+              return
+            }
+          }
         await dispatch({type:"ADD",id:foodItem._id,name:foodItem.name,price:finalPrice, qty:qty, size:size})
-        console.log(data);
+        // console.log(data);
     }
     let finalPrice=qty* parseInt(options[size]);
     useEffect(()=>{
@@ -25,14 +44,14 @@ export default function Card(props) {
                     <h5 className="card-title">{foodItem.name}</h5>
                     {/* <p className="card-text">jaruri text hai</p> */}
                     <div className='container w-100'>
-                        <select className='m-2 h-100  bg-success rounded' onChange={(e)=> setQty(e.target.value)}>
+                        <select className='m-2 h-100   rounded' style={{ backgroundColor: '#2C3E50'}} onChange={(e)=> setQty(e.target.value)}>
                             {Array.from(Array(6), (e, i) => {
                                 return (
                                     <option key={i + 1} value={i + 1}>{i + 1}</option>
                                 )
                             })}
                         </select>
-                        <select className='m-2 h-100  bg-success rounded' ref={priceRef} onChange={(e)=> setSize(e.target.value)}>
+                        <select className='m-2 h-100   rounded' style={{ backgroundColor: '#2C3E50'}} ref={priceRef} onChange={(e)=> setSize(e.target.value)}>
                             {priceOptions.map((data)=>{
                                 return <option key={data} value={data}>
                                     {data}
@@ -51,3 +70,10 @@ export default function Card(props) {
 
     )
 }
+
+
+
+
+
+
+

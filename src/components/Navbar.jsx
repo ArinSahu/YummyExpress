@@ -1,58 +1,88 @@
-import React from 'react'
-import { Link , useNavigate} from 'react-router-dom'
-import Badge from 'react-bootstrap/Badge'
-export default function Navbar() {
-    const navigate = useNavigate();
-    const handleLogout= ()=>{
-        localStorage.removeItem("authToken");
+/* eslint-disable react/jsx-no-undef */
+
+import React, { useState } from 'react'
+import { Link, useNavigate } from "react-router-dom";
+import Badge from "@material-ui/core/Badge";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { useCart } from './ContextReducer';
+import Modal from '../Modal';
+import Cart from '../screens/Cart';
+export default function Navbar(props) {
+
+    const [cartView, setCartView] = useState(false)
+    localStorage.setItem('temp', "first")
+    let navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.removeItem('authToken')
+
         navigate("/loginuser")
     }
+
+    const loadCart = () => {
+        setCartView(true)
+    }
+
+    const items = useCart();
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#2C3E50', boxShadow: '0px 4px 12px rgba(0,0,0,0.3)' }}>
                 <div className="container-fluid">
-                    <Link className="navbar-brand fs-1 fst-italic" to="/">Chomato</Link>
+                    <Link className="navbar-brand fs-2 fst-italic text-warning" to="/" style={{ fontWeight: 600 }}>
+                        Chomato
+                    </Link>
+
                     <button
-                        className="navbar-toggler"
+                        className="navbar-toggler text-light"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="/navbarNav"
+                        data-bs-target="#navbarNav"
                         aria-controls="navbarNav"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav me-auto mb-2">
+
+                    <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active fs-5" to="/">Home</Link>
-                            </li> 
-                            {(localStorage.getItem("authToken"))? 
-                            <li>
-                                <Link className="nav-link active fs-5" to="/">My Orders</Link>
-                            </li>:""}
+                                <Link className="nav-link text-white fs-5 mx-2" to="/">Home</Link>
+                            </li>
+                            {localStorage.getItem("authToken") && (
+                                <li className="nav-item">
+                                    <Link className="nav-link text-white fs-5 mx-2" to="/myorder">My Orders</Link>
+                                </li>
+                            )}
                         </ul>
-                        {(!localStorage.getItem("authToken"))?
-                            <div className='d-flex'>
-                            <Link className="btn bg-white text-success mx-2" to="/loginuser">Login</Link>
-                            <Link className="btn bg-white text-success mx-2" to="/createuser">SignUp</Link>
+
+                        <div className="d-flex align-items-center">
+                            {!localStorage.getItem("authToken") ? (
+                                <>
+                                    <Link className="btn btn-outline-warning mx-2" to="/loginuser">Login</Link>
+                                    <Link className="btn btn-outline-warning mx-2" to="/createuser">Signup</Link>
+                                </>
+                            ) : (
+                                <>
+                                    <button
+                                        className="btn btn-warning text-dark position-relative mx-2"
+                                        onClick={() => setCartView(true)}
+                                    >
+                                        <Badge color="secondary" badgeContent={items.length}>
+                                            <ShoppingCartIcon />
+                                        </Badge>
+                                        <span className="ms-1">Cart</span>
+                                    </button>
+
+                                    {cartView && <Modal onClose={() => setCartView(false)}><Cart /></Modal>}
+
+                                    <button onClick={handleLogout} className="btn btn-outline-light mx-2">Logout</button>
+                                </>
+                            )}
                         </div>
-                        : 
-                        <div>
-                            <div className="btn bg-white text-success mx-2">
-                            My Cart
-                            <Badge pill bg='danger'>2</Badge>
-                        </div>
-                        <div className="btn bg-white text-danger mx-2" onClick={handleLogout} >
-                            Logout
-                        </div>
-                        </div>
-                        }
-                        
                     </div>
                 </div>
             </nav>
+
 
         </div>
     )

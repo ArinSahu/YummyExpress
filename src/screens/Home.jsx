@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
-import Caraousal from '../components/Caraousal'
+
 
 export default function Home() {
-  
+
   const [search, setSearch] = useState('');
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
@@ -33,25 +33,41 @@ export default function Home() {
       <div>
         <div>
           <div id="carouselExampleInterval" className="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div className="carousel-inner">
-              <div className='carousel-caption' style={{ "zIndex": "10" }}>
-                <div class="d-flex justify-content-center">
-                  <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{
-                    setSearch(e.target.value);
-                  }} />
-                  {/* <button className="btn btn-outline-success btn-dark fst-italic" type="submit">Search</button> */}
+            <div className="carousel-inner position-relative">
+
+              {/* Search Bar Overlay (Centered) */}
+              <div className="position-absolute top-50 start-50 translate-middle w-100 d-flex justify-content-center" style={{ zIndex: 10 }}>
+                <div className="bg-dark bg-opacity-75 p-3 rounded shadow-lg w-75">
+                  <input
+                    className="form-control form-control-lg"
+                    type="search"
+                    placeholder="Search delicious food..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
                 </div>
               </div>
-              <div className="carousel-item active" data-bs-interval="2000" style={{ height: "500px", objectFit: "fill" }}>
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D" className="d-block w-100 h-10" alt="..." />
-              </div>
-              <div className="carousel-item" data-bs-interval="2000" style={{ height: "500px", objectFit: "contain" }}>
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D" className="d-block w-100 h-10" alt="..." />
-              </div>
-              <div className="carousel-item" data-bs-interval="2000" style={{ height: "500px", objectFit: "contain" }}>
-                <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D" className="d-block w-100 h-10" alt="..." />
-              </div>
+
+              {/* Carousel Items */}
+              {[
+                "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+                "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
+                "https://images.unsplash.com/photo-1482049016688-2d3e1b311543"
+              ].map((src, idx) => (
+                <div className={`carousel-item ${idx === 0 ? "active" : ""}`} data-bs-interval="2000" key={idx}>
+                  <div style={{ height: '500px', overflow: 'hidden', position: 'relative' }}>
+                    <img
+                      src={`${src}?w=1200&auto=format&fit=crop&q=80`}
+                      className="d-block w-100"
+                      alt="carousel food"
+                      style={{ height: '500px', objectFit: 'cover', filter: 'brightness(75%)' }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
+
+            {/* Carousel Controls */}
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
               <span className="carousel-control-prev-icon" aria-hidden="true"></span>
               <span className="visually-hidden">Previous</span>
@@ -63,6 +79,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      
       <div className="container">
         {
           foodCat.length > 0 ? foodCat.map((data) => {
@@ -76,7 +94,7 @@ export default function Home() {
                       <Card
                         foodItem={filterItems}
                         options={filterItems.options[0]}
-                        
+
                       ></Card>
                     </div>
                   )
