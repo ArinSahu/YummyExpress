@@ -35,7 +35,11 @@ export default function Cart() {
     console.log("JSON RESPONSE:::::", response.status)
     if (response.status === 200) {
       dispatch({ type: "DROP" })
+      alert("✅ Order placed successfully!");
     }
+    else {
+    alert("❌ Failed to place order. Please try again.");
+  }
   }
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
@@ -57,7 +61,7 @@ export default function Cart() {
           </thead>
           <tbody>
             {data.map((food, index) => (
-              <tr>
+              <tr key={index}>
                 <th scope='row' >{index + 1}</th>
                 <td >{food.name}</td>
                 <td>{food.qty}</td>

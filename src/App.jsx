@@ -3,6 +3,7 @@ import './App.css'
 import Home from './screens/Home'
 import Login from './screens/Login';
 import Signup from './screens/Signup';
+import MyOrders from './screens/MyOrders.jsx';
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/loginuser" element={<Login/>}/>
           <Route exact path="/createuser" element={<Signup/>}/>
+          <Route exact path="/myorder" element={<MyOrders/>} />
         </Routes>
       </div>
     </Router> 

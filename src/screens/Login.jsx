@@ -20,6 +20,7 @@ export default function Login() {
     }
     else{
       localStorage.setItem("authToken",json.authToken);
+      localStorage.setItem("userEmail", json.email);  
       // console.log(localStorage.getItem("authToken"));
       navigate("/");
     }
