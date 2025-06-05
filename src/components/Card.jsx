@@ -44,7 +44,7 @@ export default function Card(props) {
                     <h5 className="card-title">{foodItem.name}</h5>
                     {/* <p className="card-text">jaruri text hai</p> */}
                     <div className='container w-100'>
-                        <select className='m-2 h-100   rounded' style={{ backgroundColor: '#2C3E50'}} onChange={(e)=> setQty(e.target.value)}>
+                        <select className='m-2 h-100   rounded' style={{ backgroundColor: '#2C3E50'}} onChange={(e) => setQty(parseInt(e.target.value))}>
                             {Array.from(Array(6), (e, i) => {
                                 return (
                                     <option key={i + 1} value={i + 1}>{i + 1}</option>
