@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
-
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Home() {
 
@@ -54,7 +54,7 @@ export default function Home() {
                 "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
                 "https://images.unsplash.com/photo-1482049016688-2d3e1b311543"
               ].map((src, idx) => (
-                <div className={`carousel-item ${idx === 0 ? "active" : ""}`} data-bs-interval="2000" key={idx}>
+                <div className={`carousel-item ${idx === 0 ? "active" : ""}`} data-bs-interval="2500" key={idx}>
                   <div style={{ height: '500px', overflow: 'hidden', position: 'relative' }}>
                     <img
                       src={`${src}?w=1200&auto=format&fit=crop&q=80`}
@@ -68,14 +68,14 @@ export default function Home() {
             </div>
 
             {/* Carousel Controls */}
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            {/* <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
               <span className="carousel-control-prev-icon" aria-hidden="true"></span>
               <span className="visually-hidden">Previous</span>
             </button>
             <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
               <span className="carousel-control-next-icon" aria-hidden="true"></span>
               <span className="visually-hidden">Next</span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
