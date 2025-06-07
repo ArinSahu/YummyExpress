@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
 export default function Login() {
   const [credentials, setcredentials] = useState({ email: "", password: "" });
@@ -30,6 +31,8 @@ export default function Login() {
   };
 
   return (
+    <>
+    <div><Navbar /></div>
     <div className="container mt-5 d-flex justify-content-center">
       <div className="card p-4 shadow" style={{ maxWidth: "400px", width: "100%" }}>
         <h3 className="text-center mb-4 text-primary">Login to Your Account</h3>
@@ -50,5 +53,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
