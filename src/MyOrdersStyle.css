@@ -1,6 +1,7 @@
 .my-orders-wrapper {
   background-color: white;
   min-height: 100vh;
+  margin-top: 50px;
   padding-top: 2rem;
 }
 

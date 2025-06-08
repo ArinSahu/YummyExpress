@@ -37,7 +37,7 @@ export default function Home() {
             id="carouselExample"
             className="carousel slide carousel-fade"
             data-bs-ride="carousel"
-            data-bs-interval="1500"
+            data-bs-interval="2000"
             >
             <div className="carousel-inner">
               {[
@@ -56,10 +56,24 @@ export default function Home() {
                   />
                 </div>
               ))}
-              
+
+              <div
+                className="position-relative start-20   text-center px-3"
+                style={{ zIndex: 40,top:'350px',left:'500px' ,width:'600px' }}
+                >
+                <h3 style={{
+                  color: 'white',
+                  fontWeight: '100',
+                  fontSize: '2rem',
+                  fontFamily: "'Edu VIC WA NT Hand Pre', cursive",
+                  fontStyle: 'normal'
+                }}>
+                  “Cravings? We’ve Got You Covered.”
+                </h3>
+              </div>
 
             </div>
-            
+
 
           </div>
         </div>
@@ -71,7 +85,7 @@ export default function Home() {
               placeholder="Search delicious food..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-             
+
             />
           </div>
         </div>

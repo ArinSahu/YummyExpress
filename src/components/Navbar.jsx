@@ -20,7 +20,7 @@ export default function Navbar(props) {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg fixed-top" style={{ backgroundColor: 'white', boxShadow: '0px 4px 12px rgba(0,0,0,0.3)' }}>
+            <nav className="navbar navbar-expand-lg fixed-top" style={{zIndex:'30',backgroundColor: 'white', boxShadow: '0px 4px 14px rgba(0,0,0,0.3)' }}>
                 <div className="container-fluid">
                     <Link className="navbar-brand fs-2 fst-italic text-warning" to="/" style={{ fontWeight: 600 }}>
                         YummyExpress
