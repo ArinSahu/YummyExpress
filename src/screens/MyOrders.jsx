@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
+import '../MyOrdersStyle.css';
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer';
 export default function MyOrders() {
   const [orderData, setOrderData] = useState([]);
 
@@ -25,7 +27,9 @@ export default function MyOrders() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <>
+    <div><Navbar /></div>
+    <div className="my-orders-wrapper container mt-5 mb-5">
       <h2 className="text-center mb-4 text-warning fw-bold">🍽 My Orders</h2>
       {orderData.length === 0 ? (
         <div className="text-center text-secondary fs-4">No orders found.</div>
@@ -39,7 +43,7 @@ export default function MyOrders() {
                     <i className="bi bi-calendar-event"></i> Order Date:{" "}
                     <span className="badge bg-info text-dark">{order[0].Order_date}</span>
                   </h5>
-                  <table className="table table-sm table-hover mt-3">
+                  <table className="table table-sm  mt-3 ">
                     <thead className="table-light">
                       <tr>
                         <th>#</th>
@@ -72,6 +76,10 @@ export default function MyOrders() {
           ))}
         </div>
       )}
+      <br/>
     </div>
+    <br/>
+    <Footer />
+    </>
   );
 }

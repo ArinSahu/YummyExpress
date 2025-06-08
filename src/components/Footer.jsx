@@ -1,15 +1,23 @@
-import React from 'react'
+import React from 'react';
 
 export default function Footer() {
   return (
-    <div>
-
-      <footer className="bg-dark text-light py-3 mt-auto">
-        <div className="container text-center">
-          <span className="text-muted">© 2025 Chomato, Inc</span>
-        </div>
-      </footer>
-
-    </div>
-  )
+    <footer
+      style={{
+        backgroundColor: '#212529', // bg-dark
+        color: '#f8f9fa', // text-light
+        padding: '1rem 0',
+        marginTop: 'auto',
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        textAlign: 'center',
+        zIndex: 1000,
+      }}
+    >
+      <div>
+        <span style={{ color: '#6c757d' }}>© 2025 Chomato, Inc</span>
+      </div>
+    </footer>
+  );
 }

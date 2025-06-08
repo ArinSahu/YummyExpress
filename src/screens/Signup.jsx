@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer';
 export default function Signup() {
   const [credentials, setcredentials] = useState({
     name: "",
@@ -69,6 +70,7 @@ export default function Signup() {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   );
 }
