@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
-
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Badge from "@material-ui/core/Badge";
@@ -7,28 +5,25 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useCart } from './ContextReducer';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
-export default function Navbar(props) {
 
+export default function Navbar(props) {
     const [cartView, setCartView] = useState(false)
     localStorage.setItem('temp', "first")
     let navigate = useNavigate();
+
     const handleLogout = () => {
         localStorage.removeItem('authToken')
-
         navigate("/loginuser")
     }
 
-    const loadCart = () => {
-        setCartView(true)
-    }
-
     const items = useCart();
+
     return (
         <div>
-            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'white', boxShadow: '0px 4px 12px rgba(0,0,0,0.3)' }}>
+            <nav className="navbar navbar-expand-lg fixed-top" style={{ backgroundColor: 'white', boxShadow: '0px 4px 12px rgba(0,0,0,0.3)' }}>
                 <div className="container-fluid">
                     <Link className="navbar-brand fs-2 fst-italic text-warning" to="/" style={{ fontWeight: 600 }}>
-                        Chomato
+                        YummyExpress
                     </Link>
 
                     <button
@@ -73,7 +68,7 @@ export default function Navbar(props) {
                                         <span className="ms-1">Cart</span>
                                     </button>
 
-                                    {cartView && <Modal onClose={() => setCartView(false)}><Cart /></Modal>}
+                                    {cartView && <Modal onClose={() => setCartView(false) }><Cart /></Modal>}
 
                                     <button onClick={handleLogout} className="btn btn-outline-dark mx-2">Logout</button>
                                 </>
@@ -82,8 +77,6 @@ export default function Navbar(props) {
                     </div>
                 </div>
             </nav>
-
-
         </div>
     )
 }

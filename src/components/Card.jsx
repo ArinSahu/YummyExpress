@@ -31,34 +31,33 @@ export default function Card(props) {
   return (
     <div>
       <div className="card food-card">
-        <img
-          className="card-img-top food-card-img"
-          src={foodItem.img}
-          alt="Food"
-        />
-        <div className="card-body food-card-body">
-          <h5 className="card-title">{foodItem.name}</h5>
-          <div className='container w-100'>
-            <select className='food-card-select' onChange={(e) => setQty(parseInt(e.target.value))}>
-              {Array.from(Array(6), (e, i) => (
-                <option key={i + 1} value={i + 1}>{i + 1}</option>
-              ))}
-            </select>
-            <select className='food-card-select' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
-              {priceOptions.map((data) => (
-                <option key={data} value={data}>{data}</option>
-              ))}
-            </select>
-            <div className='food-card-price'>
-              ₹{finalPrice}/-
-            </div>
-          </div>
-          <hr />
-          <button className='btn btn-success food-card-button' onClick={handleAddToCart}>
-            Add to Cart
-          </button>
-        </div>
-      </div>
+  <img
+    className="card-img-top food-card-img"
+    src={foodItem.img}
+    alt="Food"
+  />
+  <div className="card-body food-card-body">
+    <h5 className="card-title">{foodItem.name}</h5>
+    <div className='food-card-controls'>
+      <select className='food-card-select' onChange={(e) => setQty(parseInt(e.target.value))}>
+        {Array.from(Array(6), (e, i) => (
+          <option key={i + 1} value={i + 1}>{i + 1}</option>
+        ))}
+      </select>
+      <select className='food-card-select' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
+        {priceOptions.map((data) => (
+          <option key={data} value={data}>{data}</option>
+        ))}
+      </select>
+      <div className='food-card-price'>₹{finalPrice}/-</div>
+    </div>
+    <hr />
+    <button className='btn btn-success food-card-button' style={{ marginTop: '-10px' }} onClick={handleAddToCart}>
+      Add to Cart
+    </button>
+  </div>
+</div>
+
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Footer() {
       }}
     >
       <div>
-        <span style={{ color: '#6c757d' }}>© 2025 Chomato, Inc</span>
+        <span style={{ color: '#6c757d' }}>© 2025 YummyExpress, Inc</span>
       </div>
     </footer>
   );
