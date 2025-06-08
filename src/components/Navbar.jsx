@@ -25,7 +25,7 @@ export default function Navbar(props) {
     const items = useCart();
     return (
         <div>
-            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#2C3E50', boxShadow: '0px 4px 12px rgba(0,0,0,0.3)' }}>
+            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'white', boxShadow: '0px 4px 12px rgba(0,0,0,0.3)' }}>
                 <div className="container-fluid">
                     <Link className="navbar-brand fs-2 fst-italic text-warning" to="/" style={{ fontWeight: 600 }}>
                         Chomato
@@ -46,11 +46,11 @@ export default function Navbar(props) {
                     <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link text-white fs-5 mx-2" to="/">Home</Link>
+                                <Link className="nav-link text-black fs-5 mx-2" to="/">Home</Link>
                             </li>
                             {localStorage.getItem("authToken") && (
                                 <li className="nav-item">
-                                    <Link className="nav-link text-white fs-5 mx-2" to="/myorder">My Orders</Link>
+                                    <Link className="nav-link text-black fs-5 mx-2" to="/myorder">My Orders</Link>
                                 </li>
                             )}
                         </ul>
@@ -75,7 +75,7 @@ export default function Navbar(props) {
 
                                     {cartView && <Modal onClose={() => setCartView(false)}><Cart /></Modal>}
 
-                                    <button onClick={handleLogout} className="btn btn-outline-light mx-2">Logout</button>
+                                    <button onClick={handleLogout} className="btn btn-outline-dark mx-2">Logout</button>
                                 </>
                             )}
                         </div>

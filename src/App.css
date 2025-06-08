@@ -1,0 +1,31 @@
+/* Restrict styles only to the Home component */
+.home-page {
+  background-color:whitesmoke;
+  
+}
+
+/* Style the category title */
+.home-page .fs-3 {
+  font-weight: 600;
+  
+  
+  color: #333;
+}
+
+/* Card container spacing */
+.home-page .row.g-4 {
+  margin-bottom: 2rem;
+}
+
+/* Customize Card component layout if needed */
+.home-page .col-12.col-md-6.col-lg-3 {
+  display: flex;
+  justify-content: center;
+}
+
+/* Optional: Card hover effect for better UX */
+.home-page .card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  transition: all 0.3s ease-in-out;
+}

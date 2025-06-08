@@ -29,7 +29,7 @@ export default function MyOrders() {
   return (
     <>
     <div><Navbar /></div>
-    <div className="my-orders-wrapper container mt-5 mb-5">
+    <div className="my-orders-wrapper">
       <h2 className="text-center mb-4 text-warning fw-bold">🍽 My Orders</h2>
       {orderData.length === 0 ? (
         <div className="text-center text-secondary fs-4">No orders found.</div>
@@ -76,9 +76,9 @@ export default function MyOrders() {
           ))}
         </div>
       )}
-      <br/>
+      
     </div>
-    <br/>
+   
     <Footer />
     </>
   );

@@ -17,7 +17,6 @@ export default function Login() {
       body: JSON.stringify(credentials)
     });
     const json = await response.json();
-    console.log(json);
     if (!json.success) {
       alert("Enter valid credentials");
     } else {
@@ -32,29 +31,31 @@ export default function Login() {
   };
 
   return (
-    <>
-    <div><Navbar /></div>
-    <div className="container mt-5 d-flex justify-content-center">
-      <div className="card p-4 shadow" style={{ maxWidth: "400px", width: "100%" }}>
-        <h3 className="text-center mb-4 text-primary">Login to Your Account</h3>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Email address</label>
-            <input type="email" name="email" className="form-control" value={credentials.email} onChange={onChange} required />
+    <div className="d-flex flex-column" style={{ minHeight: "100vh", backgroundColor: 'white'  }}>
+      <Navbar />
+      <div className="flex-grow-1 d-flex align-items-center justify-content-center">
+        <div className="container mt-5">
+          <div className="card p-4 shadow mx-auto" style={{ maxWidth: "400px" }}>
+            <h3 className="text-center mb-4 text-primary">Login to Your Account</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Email address</label>
+                <input type="email" name="email" className="form-control" value={credentials.email} onChange={onChange} required />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Password</label>
+                <input type="password" name="password" className="form-control" value={credentials.password} onChange={onChange} required />
+              </div>
+              <button type="submit" className="btn btn-primary w-100">Login</button>
+            </form>
+            <div className="text-center mt-3">
+              <span>Don't have an account?</span>
+              <Link to="/createuser" className="btn btn-link text-decoration-none">Sign Up</Link>
+            </div>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input type="password" name="password" className="form-control" value={credentials.password} onChange={onChange} required />
-          </div>
-          <button type="submit" className="btn btn-primary w-100">Login</button>
-        </form>
-        <div className="text-center mt-3">
-          <span>Don't have an account?</span>
-          <Link to="/createuser" className="btn btn-link text-decoration-none">Sign Up</Link>
         </div>
       </div>
+      <Footer />
     </div>
-    <Footer />
-    </>
   );
 }

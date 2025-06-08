@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import Card from '../components/Card';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import '../App.css'
 export default function Home() {
   const [search, setSearch] = useState('');
   const [foodCat, setFoodCat] = useState([]);
@@ -34,10 +34,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <>
       <Navbar />
+    <div className="d-flex flex-column min-vh-100 home-page g-1" style={{ backgroundColor: 'white' }}>
 
-      {/* Carousel */}
       <div>
 
 
@@ -58,7 +58,7 @@ export default function Home() {
               </div>
             ))}
 
-            {/* Search Bar at Bottom */}
+           
             <div className="position-absolute bottom-0 start-50 translate-middle-x w-100 d-flex justify-content-center mb-4" style={{ zIndex: 10 }}>
               <div className="bg-dark bg-opacity-75 p-3 rounded shadow-lg w-75">
                 <input
@@ -76,14 +76,12 @@ export default function Home() {
 
 
       </div>
-
-      {/* Food Cards Section */}
       <div className="container mt-4">
         {
           foodCat.length > 0 ? foodCat.map((data) => (
-            <div key={data._id} className='row mb-3'>
+            <div key={data._id} className='row mb-3 g-4 '>
               <div className='fs-3 m-3'>{data.CategoryName}</div>
-              <hr />
+             
               {
                 foodItem.length > 0 ?
                   foodItem.filter(item =>
@@ -106,5 +104,6 @@ export default function Home() {
 
       <Footer />
     </div>
+    </>
   );
 }

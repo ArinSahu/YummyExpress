@@ -4,12 +4,10 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#212529', // bg-dark
-        color: '#f8f9fa', // text-light
+        backgroundColor: 'whitesmoke', 
+        color: '#f8f9fa', 
         padding: '1rem 0',
         marginTop: 'auto',
-        position: 'fixed',
-        bottom: 0,
         width: '100%',
         textAlign: 'center',
         zIndex: 1000,

@@ -30,8 +30,8 @@ export default function Cart() {
 
   if (data.length === 0) {
     return (
-      <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', color: 'black' }}>
-        <div className='m-5 w-100 text-center fs-3'>The Cart is Empty!</div>
+      <div style={{ backgroundColor: 'white', minHeight: '100vh', color: 'black' }}>
+        <div className=' w-100 text-center fs-3'>The Cart is Empty!</div>
       </div>
     );
   }
