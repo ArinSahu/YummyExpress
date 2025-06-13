@@ -4,12 +4,13 @@ const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
-const jwtSecret = "bhosadpappumadarchodrandi"
+require('dotenv').config(); 
+const jwtSecret = process.env.JWT_SECRET;
 
 router.post("/createuser",
     [body('email').isEmail(),
-    body('password', 'incorrect password').isLength({ min: 5 }),
-    body('name', 'Name must be at least 5 characters long').isLength({ min: 5 })
+    body('password', 'password length should be atleast 5').isLength({ min: 5 }),
+    body('name', 'Name must be at least 1 characters long').isLength({ min: 1 })
     ]
     , async (req, res) => {
 
