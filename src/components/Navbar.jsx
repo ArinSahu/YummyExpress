@@ -5,6 +5,8 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useCart } from './ContextReducer';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 export default function Navbar(props) {
     const [cartView, setCartView] = useState(false)
