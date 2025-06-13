@@ -52,7 +52,7 @@ export default function Home() {
                     src={`${src}?w=1200&auto=format&fit=crop&q=80`}
                     className="d-block w-100"
                     alt="carousel food"
-                    style={{ height: '700px', objectFit: 'cover', filter: 'brightness(75%)' }}
+                    style={{ height: '720px', objectFit: 'cover', filter: 'brightness(75%)' }}
                   />
                 </div>
               ))}
