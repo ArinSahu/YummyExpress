@@ -45,3 +45,16 @@ Backend
     MongoDB (with Mongoose)
 
     JSON Web Token (JWT) for auth
+
+🖼️ Screenshots
+
+
+
+🧑‍💻 Author
+
+Arin Sahu
+GitHub: @ArinSahu
+
+⭐️ Show Your Support
+
+If you like this project, give it a ⭐️ and share it!
