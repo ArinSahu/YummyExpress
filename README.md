@@ -1,12 +1,60 @@
-# React + Vite
+🍔 MERN Food Delivery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Food Delivery Application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This app allows users to browse food items, search and filter dishes, add them to a cart, and manage orders — all with user authentication features.
+🚀 Features
 
-Currently, two official plugins are available:
+    🔐 User Authentication
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+        Signup and login functionality with secure JWT-based authentication
 
-## Expanding the ESLint configuration
+    🍽️ Browse and Select Food
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+        Display categorized food items fetched from MongoDB
+
+    🔍 Search & Filter
+
+        Search food items by name
+
+        Filter food by category
+
+    🛒 Cart System
+
+        Add and remove items from the cart
+
+        View total price dynamically
+
+    📦 My Orders
+
+        View all your past orders
+
+        See order details and timestamps
+
+🛠️ Tech Stack
+Frontend
+
+    React.js
+
+    Bootstrap /  CSS 
+
+Backend
+
+    Node.js
+
+    Express.js
+
+    MongoDB (with Mongoose)
+
+    JSON Web Token (JWT) for auth
+
+🖼️ Screenshots
+
+
+
+🧑‍💻 Author
+
+Arin Sahu
+GitHub: @ArinSahu
+
+⭐️ Show Your Support
+
+If you like this project, give it a ⭐️ and share it!
