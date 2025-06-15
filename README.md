@@ -48,6 +48,7 @@ Backend
 
 🖼️ Screenshots
 
+![Screenshot (29)](https://github.com/user-attachments/assets/4e4e61e2-d8df-4466-a693-0d97fd4aa37e)
 
 
 🧑‍💻 Author
