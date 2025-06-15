@@ -50,6 +50,10 @@ Backend
 
 ![Screenshot (29)](https://github.com/user-attachments/assets/4e4e61e2-d8df-4466-a693-0d97fd4aa37e)
 ![Screenshot (23)](https://github.com/user-attachments/assets/9c367f7a-4b7f-4bf1-8ea3-639239ed749a)
+![Screenshot (24)](https://github.com/user-attachments/assets/0f6bf564-5d69-45cb-b96d-70d3ce453ed5)
+![Screenshot (25)](https://github.com/user-attachments/assets/aeff730d-3bc9-43bc-bd7b-2f8c39abe984)
+![Screenshot (26)](https://github.com/user-attachments/assets/b7e6e2c5-800a-4186-9969-6d7d212c9a10)
+![Screenshot (27)](https://github.com/user-attachments/assets/5731e679-d44e-4492-a6e5-e301c5e354ae)
 
 
 
