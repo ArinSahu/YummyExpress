@@ -6,7 +6,7 @@ export default function MyOrders() {
   const [orderData, setOrderData] = useState([]);
 
   const fetchMyOrders = async () => {
-    let response = await fetch("http://localhost:5000/api/auth/myorder", {
+    let response = await fetch("https://yummyexpressfrontend.onrender.com/api/auth/myorder", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
