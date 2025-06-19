@@ -137,7 +137,8 @@ export default function Home() {
                 });
               })()
             ) : (
-              <div>Loading Categories...</div>
+              <div style="color: black;">Loading Menu...</div>
+
             )
           }
         </div>
