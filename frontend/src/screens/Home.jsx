@@ -137,7 +137,7 @@ export default function Home() {
                 });
               })()
             ) : (
-             <div style={{ color: 'black' }}>Loading Categories...</div>;
+             <div style={{ color: 'black' }}>Loading Menu...</div>;
 
             )
           }
