@@ -15,7 +15,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://yummyexpressfrontend.onrender.com/api/createuser", {
+    const response = await fetch("https://yummyexpress-backend.onrender.com/api/createuser", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
