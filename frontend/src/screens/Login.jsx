@@ -9,7 +9,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://yummyexpressfrontend.onrender.com/api/loginuser", {
+    const response = await fetch("https://yummyexpress-backend.onrender.com/api/loginuser", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
