@@ -12,7 +12,7 @@ export default function Home() {
   const [foodItem, setFoodItem] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch("https://yummyexpressfrontend.onrender.com/api/foodData", {
+    let response = await fetch("https://yummyexpress-backend.onrender.com/api/foodData", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
