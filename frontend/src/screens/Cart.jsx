@@ -9,7 +9,7 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    let response = await fetch("https://yummyexpressfrontend.onrender.com/api/auth/orderData", {
+    let response = await fetch("https://yummyexpress-backend.onrender.com/api/auth/orderData", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
